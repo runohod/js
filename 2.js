@@ -91,5 +91,5 @@ console.log(false === 0);
 console.log(null == undefined);
 console.log(null === undefined);
 
-// строгое т.к. мы не допустим ошибом в коде 
+// безопасно использовать строгое т.к. не привести к неочевидным результатам
 
