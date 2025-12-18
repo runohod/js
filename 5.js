@@ -4,7 +4,7 @@
 // 3. Вызови функцию 3 раза с разными аргументами
 
 // function sayHello (name) {
-//     if (name === undefined) {
+//     if (!name) {
 //         console.log("Гость")
 //     }
 //     console.log(`Привет, ${name}!`)
