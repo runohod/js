@@ -126,10 +126,14 @@
 // const rawPhone = "  7 923 456-78-90  ";
 
 // function validateRawPhone(rawPhone) { 
+//     let step1 = rawPhone.trim();
+//     let step2 = step1.replace("923", "(923)");  
+//     let result = "+" + step2;  
 
-//     return rawPhone;
+//     return result;
 // }
 
+// console.log(validateRawPhone(rawPhone));
 
 // Сделай красивый номер +7 (923) 456-78-90
 // Используй ТОЛЬКО методы строк и конкатенацию!
@@ -177,5 +181,23 @@ const fullName = " иванов Сергей Петрович ";
 // - Первая буква фамилии — заглавная, остальное строчные 
 // - Инициалы от имени и отчества — заглавные с точкой 
 // - Всё без массивов и split!
+
+let surname = 
+let name = 
+let oldName = 
+
+
+function validateRawPhone(rawPhone) { 
+    let step1 = rawPhone.trim();
+    let step2 = step1.replace("923", "(923)");  
+    let result = "+" + step2;  
+
+    return result;
+}
+
+console.log(validateRawPhone(rawPhone));
+
+
+
 
 
