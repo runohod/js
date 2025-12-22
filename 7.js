@@ -182,20 +182,18 @@ const fullName = " иванов Сергей Петрович ";
 // - Инициалы от имени и отчества — заглавные с точкой 
 // - Всё без массивов и split!
 
-let surname = 
-let name = 
-let oldName = 
+let surname = '';
+let name = '';
+let oldName = '';
 
 
-function validateRawPhone(rawPhone) { 
-    let step1 = rawPhone.trim();
-    let step2 = step1.replace("923", "(923)");  
-    let result = "+" + step2;  
-
+function validateRawPhone(fullName) { 
+    let step1 = fullName.trim();
+    
     return result;
 }
 
-console.log(validateRawPhone(rawPhone));
+console.log(validateRawPhone(fullName));
 
 
 
