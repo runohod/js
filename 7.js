@@ -50,9 +50,8 @@
 //     console.log("Округлили два знака после запятой:", step1);
 
 //     // второе задание
-//     const step2 = number.split('.');
-//     console.log("Цена с разделителем тысяч:", step2);
-
+//     const step2 = number.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + " ₽";
+    
 //     return step2;
 // }
 
@@ -62,12 +61,12 @@
 
 
 // 3. Проверь, является ли число целым
+
 // function transformNum(number) {
     
-//     const step = (number % 1 === 0);
-    
-//     console.log(step);
-//     return step;
+//     const step3 = Number.isInteger(number);
+//     console.log("3. Является ли число целым?", step3  );
+//     return step3 ;
 // }
 
 
@@ -115,11 +114,10 @@
 //         return false;
 //     }
 
-//     return step2;
+//     return true;
 // }
 
-
-// console.log("Логин валиден: cleanedUsername" );
+// console.log(`Логин валиден: ${step2}`);
 
 /////////////////////////////////////////////////////////////// Задание 4:///////////////////////////////////////////////////////////////
 
@@ -127,8 +125,20 @@
 
 // function validateRawPhone(rawPhone) { 
 //     let step1 = rawPhone.trim();
-//     let step2 = step1.replace("923", "(923)");  
-//     let result = "+" + step2;  
+
+//     if (step1.length < 11) {
+//         return "Некорректный номер телефона";
+//     }
+
+//     const part1 = step1.slice(0, 1);    
+//     const part2 = step1.slice(2, 5);    
+//     const part3 = step1.slice(6, 9);    
+//     const part4 = step1.slice(10, 12);   
+//     const part5 = step1.slice(13, 15);
+    
+//     const formattedPhone = `${part1} (${part2}) ${part3}-${part4}-${part5}`;
+
+//     let result = "+" + formattedPhone;  
 
 //     return result;
 // }
@@ -166,7 +176,10 @@
 //     } 
 
 //     else {
-//         wordCount++;
+//         if (!inWord) {
+//             wordCount++;
+//             inWord = true;
+//         }
 //     }
 // }
 
@@ -174,26 +187,26 @@
 
 /////////////////////////////////////////////////////////////// Задание 6:///////////////////////////////////////////////////////////////
 
-const fullName = " иванов Сергей Петрович ";
+// const fullName = " иванов Сергей Петрович ";
 
-// Сделай аббревиатуру: "Иванов С. П." 
-// Правила: 
-// - Первая буква фамилии — заглавная, остальное строчные 
-// - Инициалы от имени и отчества — заглавные с точкой 
-// - Всё без массивов и split!
+// // Сделай аббревиатуру: "Иванов С. П." 
+// // Правила: 
+// // - Первая буква фамилии — заглавная, остальное строчные 
+// // - Инициалы от имени и отчества — заглавные с точкой 
+// // - Всё без массивов и split!
 
-let surname = '';
-let name = '';
-let oldName = '';
+// let surname = '';
+// let name = '';
+// let oldName = '';
 
 
-function validateRawPhone(fullName) { 
-    let step1 = fullName.trim();
+// function validateRawPhone(fullName) { 
+//     let step1 = fullName.trim();
     
-    return result;
-}
+//     return result;
+// }
 
-console.log(validateRawPhone(fullName));
+// console.log(validateRawPhone(fullName));
 
 
 
