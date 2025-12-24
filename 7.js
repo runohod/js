@@ -114,7 +114,7 @@
 //         return false;
 //     }
 
-//     return true;
+//     return step2;
 // }
 
 // console.log(`Логин валиден: ${step2}`);
@@ -195,19 +195,37 @@
 // // - Инициалы от имени и отчества — заглавные с точкой 
 // // - Всё без массивов и split!
 
-// let surname = '';
-// let name = '';
-// let oldName = '';
+// const getAbbreviation = (fullName) => {
+//     const cleanedFullname = fullName.trim();
 
+//     let firstName = "";
+//     let lastName = "";
+//     let patronymic = "";
 
-// function validateRawPhone(fullName) { 
-//     let step1 = fullName.trim();
-    
-//     return result;
-// }
+//     const enterIndexes = [];
 
-// console.log(validateRawPhone(fullName));
+//     for (let i = 0; i < cleanedFullname.length; i++) {
+//         if (cleanedFullname[i] === " ") {
+//             enterIndexes.push(i);
+//         }
+//     }
 
+//     lastName = cleanedFullname.slice(0, enterIndexes[0]);
+
+//     firstName = cleanedFullname.slice(enterIndexes[0] + 1, enterIndexes[1]);
+
+//     patronymic = cleanedFullname.slice(enterIndexes[1] + 1, cleanedFullname.length);
+
+//     lastName = lastName.charAt(0).toUpperCase() + lastName.slice(1);
+
+//     firstName = firstName.charAt(0).toUpperCase() + ".";
+
+//     patronymic = patronymic.charAt(0).toUpperCase() + ".";
+
+//     return `${lastName} ${firstName} ${patronymic}`;
+// };
+
+// console.log(getAbbreviation(fullName));
 
 
 
