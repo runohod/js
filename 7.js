@@ -225,7 +225,7 @@
 //     return `${lastName} ${firstName} ${patronymic}`;
 // };
 
-console.log(getAbbreviation(fullName));
+// console.log(getAbbreviation(fullName));
 
 
 
