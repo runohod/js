@@ -41,40 +41,59 @@
 // 2. Преобразуй его в Map
 // 3. Преобразуй Map обратно в массив
 
-const data = new Map([["a", 1], ["b", 2], ["c", 3]]);
+// const data = [["a", 1], ["b", 2], ["c", 3]];
 
-const map = new Map(Object.entries(data))
+// const map = new Map(data);
+// console.log(map);
 
-map.forEach((value, key) => {
-    console.log(`${key}: ${value}`)
-})
+// const mapToObject = Object.fromEntries(map);
+// console.log(mapToObject);
 
-
-
-
-
+// const objToMap = new Map(Object.entries(mapToObject));
+// console.log("Map из объекта:", objToMap);
 
 
+///////////////////////////////////////////////////////////////// Задание 4:///////////////////////////////////////////////////////////////
+
+// Создание и базовая работа с Set
+// 1. Создай Set из чисел: 1, 2, 3, 4, 5
+// 2. Добавь число 3 (дубликат) и число 6
+// 3. Удали число 2
+// 4. Проверь, есть ли число 4
+// 5. Выведи размер Set
+
+// const set = new Set([1, 2, 3, 4, 5])
+// set.add(3);
+// set.add(6);
+// set.delete(2);
+
+// console.log(set);
+// console.log(set.has(4));
+// console.log(set.size);
 
 
+///////////////////////////////////////////////////////////////// Задание 5:///////////////////////////////////////////////////////////////
+
+// Перебор Set
+// 1. Выведи все элементы Set через любой цикл или метод
+
+// const set = new Set([1, 2, 3, 4, 5])
+
+// for (const key of set.keys()) {
+//     console.log(key)
+// }
 
 
+///////////////////////////////////////////////////////////////// Задание 6:///////////////////////////////////////////////////////////////
 
+// Уникальные значения из массива
+// 1. Пусть есть массив numbers = [1, 2, 2, 3, 4, 4, 5]
+// 2. Используя Set, создай массив уникальных чисел
 
+// numbers = [1, 2, 2, 3, 4, 4, 5]
+// console.log(numbers);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// const setFromArray = new Set(numbers);
+// console.log(setFromArray);
 
 
