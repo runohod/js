@@ -17,6 +17,7 @@
 // console.log(data.get('name'))
 // data.set('country', 'USA');
 // data.delete('age');
+// console.log(data.has('city'));
 // console.log(data.size);
 
 
@@ -29,6 +30,10 @@
 //     ['age', 28],
 //     ['city', 'Москва'],
 // ]);
+
+// data.forEach((value, key) => {
+//     console.log(`${key}: ${value}`);
+// });
 
 // console.log('keys:', data.keys());
 // console.log('values:', data.values());
@@ -96,4 +101,5 @@
 // const setFromArray = new Set(numbers);
 // console.log(setFromArray);
 
-
+// const uniqueArray = Array.from(setFromArray);
+// console.log(uniqueArray);
