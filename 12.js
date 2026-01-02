@@ -68,9 +68,9 @@
 // 3. После этого выведи "Продолжаем работу"
 
 // try { 
-//     throw new Error("Что-то пошло не так");
-// } catch (Error) {
-//     console.log(Error.message);
+//     throw new error("Что-то пошло не так");
+// } catch (error) {
+//     console.log(error.message);
 // }
 
 // console.log("Продолжаем работу");
