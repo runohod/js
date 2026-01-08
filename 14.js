@@ -125,12 +125,83 @@
 // 1. Каждому li добавь data-id с уникальным номером
 // 2. Выведи data-id при клике на li в консоль
 
+// const myUl = document.querySelector("ul");
+// const allLis = myUl.querySelectorAll("li");
+
+// allLis.forEach((li, index) => {
+//   li.dataset.id = index + 1;
+
+//   li.addEventListener("click", function() {
+//     console.log("data-id элемента:", this.dataset.id);
+//   });
+// });
 
 
+///////////////////////////////////////////////////////////////// Задание 9:///////////////////////////////////////////////////////////////
+// Создание модального окна (простая версия)
+// 1. Реализуй модальное окно с помощью JS.
+// 2. Как оно выглядит можно посмотреть в интернете, выбрать понравившуюся реализацию и постараться реализовать функционал открытия 
+// и закрытия модального окна. Без ИИ и без копипаста с интернета.
+
+// const modal = document.querySelector(".modal");
+// const buttonOpen = document.querySelector(".buttonOpen");
+// const buttonClose = document.querySelector(".buttonClose");
+
+// buttonOpen.addEventListener('click', function() {
+//     modal.classList.add("open")
+// });
+
+// buttonClose.addEventListener('click', function() {
+//     modal.classList.remove("open")
+// });
 
 
+///////////////////////////////////////////////////////////////// Задание 10:///////////////////////////////////////////////////////////////
+//    Прокрутка и координаты
+//    1. Создай блок 3000px высотой
+//    2. Повесь обработчик scroll на окно
+//    3. При прокрутке выводи количество пикселей, которые проскроллил пользователь
+
+// document.body.style.height = '3000px';
+// document.body.style.background = 'linear-gradient(to bottom, #f0f2f5, #3498db)';
+
+// window.addEventListener('scroll', () => {
+//     const scrolled = window.scrollY;
+//     console.log(`Прокручено: ${Math.round(scrolled)}px`);
+// });
 
 
+///////////////////////////////////////////////////////////////// Задание 11:///////////////////////////////////////////////////////////////
+//    Работа с классами через classList
+//    1. Создай блоку .card кнопку "Скрыть"
+//    2. При клике скрывай card (add hidden)
+//    3. При повторном клике — показывай (toggle hidden)
+
+// const card = document.createElement("div");
+// card.classList.add("card")
+
+// const button = document.createElement(".button");
+// button.textContent = "Скрыть";
+// button.classList.add("card")
+// document.body.append(button);
+
+// button.addEventListener('click', () => {
+//     card.classList.toggle('hidden')
+//     button.textContent = "Скрыть";
+// });
+
+
+///////////////////////////////////////////////////////////////// Задание 12:///////////////////////////////////////////////////////////////
+//  Финальное мини-приложение "Список дел". Реализовать через CLASS!
+//    Создай UI:
+//      - input
+//      - button "Добавить"
+//      - список ul > li
+  
+//    Функционал:
+//      1. Добавление задач
+//      2. Удаление задач
+//      3. Отмечать задачу выполненной (клик по li → добавляется класс "done")
 
 
 
