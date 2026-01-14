@@ -107,17 +107,18 @@
 // 1. Добавь каждому li кнопку "Удалить" (создавай при добавлении)
 // 2. При клике на "Удалить" — удалить соответствующий li
 
-// const li = document.createElement("li");
-// li.textContent = "Новая задача ";
+const allLi = document.querySelectorAll('li');
 
-// const deleteBtn = document.createElement("button");
-// deleteBtn.textContent = "Удалить";
+allLi.forEach((li) => {
+    const deleteBtn = document.createElement("button");
+    deleteBtn.textContent = "Удалить";
 
-// deleteBtn.addEventListener('click', () => {
-//     li.remove();
-// });
+    deleteBtn.addEventListener('click', () => {
+        li.remove(); 
+    });
 
-// li.appendChild(deleteBtn);
+    li.appendChild(deleteBtn);
+});
 
 
 ///////////////////////////////////////////////////////////////// Задание 8:///////////////////////////////////////////////////////////////

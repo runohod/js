@@ -134,16 +134,16 @@
 //     - Ctrl + S → вывести alert "Сохранено"
 //     - Ctrl + Shift + X → вывести "Комбо!"
 
-// document.addEventListener('keydown', function(event) {
+document.addEventListener('keydown', function(event) {
 
-//     if (event.ctrlKey && event.code === 'KeyS') {
-//         alert("Сохранено");
-//     }
+    if ((event.ctrlKey || event.metaKey) && event.code === 'KeyS') {
+        alert("Сохранено");
+    }
 
-//     if (event.ctrlKey && event.shiftKey && event.code === 'KeyX') {
-//         alert("Комбо!");
-//     }
-// });
+    if ((event.ctrlKey || event.metaKey) && event.shiftKey && event.code === 'KeyX') {
+        alert("Комбо!");
+    }
+});
 
 
 ///////////////////////////////////////////////////////////////// Задание 7:///////////////////////////////////////////////////////////////
@@ -151,40 +151,39 @@
 //    1. Создай квадрат 50×50
 //    2. На стрелки ↑ ↓ ← → двигая квадрат на 10px
 
-// const player = document.createElement('div');
-// player.id = 'player';
-// document.body.appendChild(player);
+const player = document.createElement('div');
+player.id = 'player';
+document.body.appendChild(player);
 
-// const style = document.createElement('style');
-// style.textContent = `
-//     #player {
-//         width: 50px;
-//         height: 50px;
-//         background-color: black;
-//         position: absolute;
-//     }
+const style = document.createElement('style');
+style.textContent = `
+    #player {
+        width: 50px;
+        height: 50px;
+        background-color: black;
+        position: absolute;
+    }
 
-// `;
-// document.head.appendChild(style);
+`;
+document.head.appendChild(style);
 
-// let topPos = 0;
-// let leftPos = 0;
+let topPos = 0;
+let leftPos = 0;
 
-// document.addEventListener('keydown', (event) => {
-//     const step = 10;
+document.addEventListener('keydown', (event) => {
+    const step = 10;
 
-//     switch (event.code) {
-//         case 'ArrowUp':    topPos = topPos - step; break;
-//         case 'ArrowDown':  topPos = topPos + step; break;
-//         case 'ArrowLeft':  leftPos = topPos - step; break;
-//         case 'ArrowRight': leftPos = topPos + step; break;
-//         default: return;
-//     }
+    switch (event.code) {
+        case 'ArrowUp': topPos -= step; break;
+        case 'ArrowDown': topPos += step; break;
+        case 'ArrowLeft': leftPos -= step; break;
+        case 'ArrowRight': leftPos += step; break;
+        default: return;
+    }
 
-//     player.style.top = topPos + 'px';
-//     player.style.left = leftPos + 'px';
-// });
-
+    player.style.top = topPos + 'px';
+    player.style.left = leftPos + 'px';
+});
 
 ///////////////////////////////////////////////////////////////// Задание 8:///////////////////////////////////////////////////////////////
 //    Мини-проект "Калькулятор"
@@ -192,74 +191,74 @@
 //    2. Реализуй весь функционал через class Calculator() {}
 //    3. Обработай нажатия клавиш клавиатуры, чтобы по нажатию enter можно было подтвердить операцию и выполнить ее
 
-class Calculator {
-  constructor(currentTextElement) {
-    this.currentTextElement = currentTextElement;
-    this.clear();
-  }
+// class Calculator {
+//   constructor(currentTextElement) {
+//     this.currentTextElement = currentTextElement;
+//     this.clear();
+//   }
 
-  clear() {
-    this.currentOperand = '';
-    this.updateDisplay();
-  }
+//   clear() {
+//     this.currentOperand = '';
+//     this.updateDisplay();
+//   }
 
-  delete() {
-    this.currentOperand = this.currentOperand.toString().slice(0, -1);
-  }
+//   delete() {
+//     this.currentOperand = this.currentOperand.toString().slice(0, -1);
+//   }
 
-  appendSymbol(symbol) {
-    let char = symbol === '÷' ? '/' : symbol;
+//   appendSymbol(symbol) {
+//     let char = symbol === '÷' ? '/' : symbol;
     
-    const lastChar = this.currentOperand.slice(-1);
-    if (['+', '-', '*', '/'].includes(char) && ['+', '-', '*', '/'].includes(lastChar)) {
-      return;
-    }
+//     const lastChar = this.currentOperand.slice(-1);
+//     if (['+', '-', '*', '/'].includes(char) && ['+', '-', '*', '/'].includes(lastChar)) {
+//       return;
+//     }
 
-    this.currentOperand = this.currentOperand.toString() + char;
-  }
+//     this.currentOperand = this.currentOperand.toString() + char;
+//   }
 
-  compute() {
-    if (this.currentOperand === '') return;
-    try {
-      this.currentOperand = eval(this.currentOperand).toString();
-    } catch (e) {
-      this.currentOperand = "Error";
-    }
-  }
+//   compute() {
+//     if (this.currentOperand === '') return;
+//     try {
+//       this.currentOperand = eval(this.currentOperand).toString();
+//     } catch (e) {
+//       this.currentOperand = "Error";
+//     }
+//   }
 
-  updateDisplay() {
-    this.currentTextElement.innerText = this.currentOperand || '0';
-  }
-}
+//   updateDisplay() {
+//     this.currentTextElement.innerText = this.currentOperand || '0';
+//   }
+// }
 
-const currentTextElement = document.querySelector('.current');
-const calculator = new Calculator(currentTextElement);
+// const currentTextElement = document.querySelector('.current');
+// const calculator = new Calculator(currentTextElement);
 
-document.querySelectorAll('.number, .operation').forEach(button => {
-  button.addEventListener('click', () => {
-    if (button.innerText === 'DEL') {
-      calculator.delete();
-    } else {
-      calculator.appendSymbol(button.innerText);
-    }
-    calculator.updateDisplay();
-  });
-});
+// document.querySelectorAll('.number, .operation').forEach(button => {
+//   button.addEventListener('click', () => {
+//     if (button.innerText === 'DEL') {
+//       calculator.delete();
+//     } else {
+//       calculator.appendSymbol(button.innerText);
+//     }
+//     calculator.updateDisplay();
+//   });
+// });
 
-document.querySelector('.result').addEventListener('click', () => {
-  calculator.compute();
-  calculator.updateDisplay();
-});
+// document.querySelector('.result').addEventListener('click', () => {
+//   calculator.compute();
+//   calculator.updateDisplay();
+// });
 
-window.addEventListener('keydown', (e) => {
-  if ((e.key >= '0' && e.key <= '9') || ['+', '-', '*', '/', '.'].includes(e.key)) {
-    calculator.appendSymbol(e.key);
-  } else if (e.key === 'Enter' || e.key === '=') {
-    calculator.compute();
-  } else if (e.key === 'Backspace') {
-    calculator.delete();
-  } else if (e.key === 'Escape') {
-    calculator.clear();
-  }
-  calculator.updateDisplay();
-});
+// window.addEventListener('keydown', (e) => {
+//   if ((e.key >= '0' && e.key <= '9') || ['+', '-', '*', '/', '.'].includes(e.key)) {
+//     calculator.appendSymbol(e.key);
+//   } else if (e.key === 'Enter' || e.key === '=') {
+//     calculator.compute();
+//   } else if (e.key === 'Backspace') {
+//     calculator.delete();
+//   } else if (e.key === 'Escape') {
+//     calculator.clear();
+//   }
+//   calculator.updateDisplay();
+// });
