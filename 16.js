@@ -39,6 +39,7 @@
 
 const openButton = document.createElement("button");
 openButton.textContent = "Получить данные";
+openButton.classList.add("btn"); 
 document.body.appendChild(openButton);
 
 class PostManager {
@@ -62,7 +63,19 @@ class PostManager {
       button.addEventListener('click', () => this.fetchPosts());
     } 
   }
+
+  render() {
+    if (this.#posts.length > 0) {
+      const list = document.createElement('ul');
+      this.#posts.slice(0, 5).forEach(post => {
+        const item = document.createElement('li');
+        item.textContent = post.title;
+        list.appendChild(item);
+      });
+      document.body.appendChild(list);
+    }
+  }
 }
 
 const manager = new PostManager();
-manager.bindButton("button");
+manager.bindButton("btn");
