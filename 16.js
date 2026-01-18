@@ -39,7 +39,6 @@
 
 const openButton = document.createElement("button");
 openButton.textContent = "Получить данные";
-openButton.classList.add("fetch-data-btn"); 
 document.body.appendChild(openButton);
 
 class PostManager {
@@ -61,37 +60,9 @@ class PostManager {
     const button = document.querySelector(selector);
     if (button) {
       button.addEventListener('click', () => this.fetchPosts());
-    } else {
-      console.warn(`Кнопка с селектором "${selector}" не найдена.`);
-    }
-  }
-
-  checkAndRender() {
-    if (this.#posts && this.#posts.length > 0) {
-      this.#renderPosts();
-    } else {
-      console.log("Данных нет или массив пуст 🤷‍♂️");
-    }
-  }
-
-  #renderPosts() {
-    this.#posts.forEach(post => {
-      const card = document.createElement("div");
-      card.style.border = "1px solid #ddd";
-      card.style.borderRadius = "8px";
-      card.style.padding = "15px";
-      card.style.margin = "10px 0";
-      card.style.fontFamily = "sans-serif";
-
-      card.innerHTML = `
-        <h3 style="margin-top: 0;">${post.title}</h3>
-        <p style="color: #555;">${post.body}</p>
-      `;
-      
-      document.body.appendChild(card);
-    });
+    } 
   }
 }
 
 const manager = new PostManager();
-manager.bindButton(".fetch-data-btn");
+manager.bindButton("button");
