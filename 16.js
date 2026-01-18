@@ -51,7 +51,7 @@ class PostManager {
       this.#posts = await response.json();
       
       console.log("Данные загружены!");
-      this.checkAndRender(); 
+      this.render(); 
     } catch (error) {
       console.error("Ошибка при получении данных:", error);
     }
@@ -67,7 +67,7 @@ class PostManager {
   render() {
     if (this.#posts.length > 0) {
       const list = document.createElement('ul');
-      this.#posts.slice(0, 5).forEach(post => {
+      this.#posts.slice(0, 50).forEach(post => {
         const item = document.createElement('li');
         item.textContent = post.title;
         list.appendChild(item);
@@ -78,4 +78,4 @@ class PostManager {
 }
 
 const manager = new PostManager();
-manager.bindButton("btn");
+manager.bindButton(".btn");
