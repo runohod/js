@@ -17,7 +17,6 @@
 */
 
 
-
 class TodoApp {
   constructor() {
     this.input = document.querySelector('#todo-input');
@@ -44,7 +43,7 @@ class TodoApp {
       }
     });
   }
-
+  
   addTask() {
     const text = this.input.value.trim();
     if (text === '') return;
@@ -57,14 +56,38 @@ class TodoApp {
 
     this.list.appendChild(li);
     this.input.value = ''; 
+    this.saveToLocalStorage();
   }
 
   toggleDone(taskElement) {
     taskElement.classList.toggle('done');
+    this.saveToLocalStorage();
   }
 
   deleteTask(taskElement) {
     taskElement.remove();
+    this.saveToLocalStorage();
+  }
+
+saveToLocalStorage() {
+    const tasks = [];
+    this.list.querySelectorAll('li').forEach(li => {
+      tasks.push({
+        text: li.querySelector('span').innerText,
+        done: li.classList.contains('done')
+      });
+    });
+    localStorage.setItem('todos', JSON.stringify(tasks));
+  }
+
+  loadFromLocalStorage() {
+    const data = localStorage.getItem('todos');
+    if (data) {
+      const tasks = JSON.parse(data);
+      tasks.forEach(task => {
+        this.renderTask(task.text, task.done);
+      });
+    }
   }
 }
 
@@ -72,8 +95,3 @@ const myTodo = new TodoApp();
 
 
 
-
-
-saveToLocalStorage() {
-    const tasks = localStorage.getItem(this.storageKay)
-}
