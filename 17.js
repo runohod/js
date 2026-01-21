@@ -45,35 +45,25 @@ class TodoApp {
     });
   }
 
-  renderTask(text, isDone = false) {
-    const li = document.createElement('li');
-    if (isDone) li.classList.add('done');
-    
-    li.innerHTML = `
-      <span>${text}</span>
-      <button class="delete-btn">×</button>
-    `;
-    this.list.appendChild(li);
-  }
-  
   addTask() {
     const text = this.input.value.trim();
     if (text === '') return;
 
     const li = document.createElement('li');
-    li.innerHTML = `
-      <span>${text}</span>
-      <button class="delete-btn">×</button>
-    `;
+    li.innerHTML = `<span>${text}</span>
+    <button class="delete-btn">×</button>`;
 
     this.list.appendChild(li);
     this.input.value = ''; 
     this.saveToLocalStorage();
   }
 
-  toggleDone(taskElement) {
-    taskElement.classList.toggle('done');
-    this.saveToLocalStorage();
+  renderTask(text, isDone = false) {
+    const li = document.createElement('li');
+    if (isDone) li.classList.add('done');
+    li.innerHTML = `<span>${text}</span>
+      <button class="delete-btn">×</button>`;
+    this.list.appendChild(li);
   }
 
   deleteTask(taskElement) {
@@ -81,12 +71,11 @@ class TodoApp {
     this.saveToLocalStorage();
   }
 
-saveToLocalStorage() {
+  saveToLocalStorage() {
     const tasks = [];
     this.list.querySelectorAll('li').forEach(li => {
       tasks.push({
         text: li.querySelector('span').innerText,
-        done: li.classList.contains('done')
       });
     });
     localStorage.setItem('todos', JSON.stringify(tasks));
