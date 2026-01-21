@@ -27,6 +27,7 @@ class TodoApp {
   }
 
   init() {
+    this.loadFromLocalStorage();
     this.button.addEventListener('click', () => this.addTask());
 
     this.input.addEventListener('keypress', (e) => {
@@ -42,6 +43,17 @@ class TodoApp {
         this.deleteTask(target.parentElement);
       }
     });
+  }
+
+  renderTask(text, isDone = false) {
+    const li = document.createElement('li');
+    if (isDone) li.classList.add('done');
+    
+    li.innerHTML = `
+      <span>${text}</span>
+      <button class="delete-btn">×</button>
+    `;
+    this.list.appendChild(li);
   }
   
   addTask() {
